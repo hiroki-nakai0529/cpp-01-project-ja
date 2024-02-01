@@ -246,8 +246,11 @@ int main() {
         {'-', '-', '-', '-', '-','-', '-', '-', '-', 'G'},
     };
 
+    // ガスの初期値
+    const int life = 10;
+
     // 初期状態の車を作成
-    CarState myCar = {0, 0, Direction::North, 15, 1};
+    CarState myCar = {0, 0, Direction::North, life, 1};
     // 更新時のmap
     Map update_map = map;
 
@@ -278,7 +281,7 @@ int main() {
     }
         update_map[myCar.y][myCar.x] = 'C';
         if(checkGasStation(myCar, map)){
-            myCar.gas = 10;
+            myCar.gas = life;
         };
         std::cout << "========================" << std::endl;
         std::cout << "Car pos : " << myCar.x << ", " << myCar.y << std::endl;
